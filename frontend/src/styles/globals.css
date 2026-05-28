@@ -1,0 +1,135 @@
+/* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #0F0E0D;
+  --black: #F5F1E8;
+  --gold: #C8A96E;
+  --muted: #8a7d70;
+  --border: rgba(245,241,232,0.12);
+  --fill: rgba(245,241,232,0.03);
+  --green: #2d6a3f;
+  --red: #8b2424;
+  --amber: #8a6a20;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* ─── TYPOGRAPHY ─── */
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-mono  { font-family: 'Space Mono', monospace; }
+.font-sans  { font-family: 'DM Sans', sans-serif; }
+
+/* ─── LAYOUT ─── */
+.page-wrap { max-width: 740px; margin: 0 auto; padding: 0 40px; }
+
+.divider-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 740px;
+  margin: 0 auto 48px;
+  padding: 0 40px;
+}
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── FIELD LABEL ─── */
+.field-label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+
+/* ─── INPUT ─── */
+.f-input {
+  width: 100%;
+  height: 46px;
+  background: rgba(245,241,232,0.05);
+  border: 1px solid rgba(245,241,232,0.15);
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #F5F1E8;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.f-input:focus { border-color: rgba(245,241,232,0.45); }
+.f-input::placeholder { color: rgba(245,241,232,0.25); }
+
+/* ─── BADGE / STATUS ─── */
+.badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid;
+}
+
+/* ─── BUTTON ─── */
+.btn-primary {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  padding: 14px 32px;
+  background: #F5F1E8;
+  color: #0F0E0D;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.86; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-secondary {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  background: transparent;
+  border: 1px solid rgba(245,241,232,0.2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: #F5F1E8; color: #F5F1E8; }
+.btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ─── ANIMATE ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 640px) {
+  .page-wrap, .divider-row { padding: 0 20px; }
+}
